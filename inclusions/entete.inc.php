@@ -4,9 +4,7 @@
   // Logique pour intégrer la BD
   // Autochargement des fichiers de classes
   spl_autoload_register(function($nomClasse) {
-    // $nomClasse = AccesBd
-    // AccesBd --> Acces-Bd --> acces-bd --> acces-bd.cls.php
-    $nomFichier = strtolower(preg_replace("/(.)([A-Z])/", "$1-$2", $nomClasse).".cls.php"); //$1 réfère à la première parenthèse et $2 c'est la deuxième parenthèse
+    $nomFichier = "$nomClasse.cls.php"; 
     if(file_exists("modeles/$nomFichier")) {
       include("modeles/$nomFichier");
     }
